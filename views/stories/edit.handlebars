@@ -1,0 +1,21 @@
+{{#each errors}}
+	<div class="alert alert-danger">{{text}}</div>
+{{else}}
+
+{{/each}}
+
+<div class="card card-body">
+	<h3>Промени запис</h3>
+	<form action="/stories/{{story.id}}?_method=PUT" method="post">
+		<input type="hidden" name="_method" value="PUT">
+		<div class="form-group">
+			<label for="title">Заглавие</label>
+			<input type="text" class="form-control" name="title" value = "{{story.title}}" required="true">
+		</div>
+		<div class="form-group">
+			<label for="details">Детайли</label>
+			<textarea class="form-control" name="details" required="true">{{story.details}}</textarea>
+		</div>
+		<button type="submit" class="btn btn-dark">Запиши</button>
+	</form>
+</div>

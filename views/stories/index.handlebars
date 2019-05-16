@@ -1,0 +1,25 @@
+<h1 class="mb-5 mt-5"> Вашите записани преживявания</h1>
+
+{{# each stories}}
+	<div class="card mb-3">
+		<h5 class='card-header'>{{title}}</h4>		
+		<div class="card-body">
+			<p class='card-text'>{{details}}</p>
+			<div class="row">
+				<div class="col-sm-4 offset-sm-2 mb-3">
+					<a href="stories/edit/{{id}}" class="card-link btn btn-outline-dark btn-block"> Промени Запис</a>
+				</div>
+				<div class="col-sm-4 mb-3">
+					<form method="POST" action="/stories/{{id}}?_method=DELETE">
+						<input type="hidden" name="_method" value="DELETE">
+						<button type="submit" class="btn btn-outline-danger btn-block"> Изтрий Запис </button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+{{else}}
+	<p>Все още нямате записани преживявания. Запиши първото си преживяване.</p>
+{{/each}}
